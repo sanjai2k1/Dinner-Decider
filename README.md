@@ -10,6 +10,9 @@
   - Api
   - Postgresql
 # ScreenShots
+##### Index Page
 ![index](/images/index.png)
+##### Decided Dinner
 ![index](/images/Decided.png)
+##### Add 
 ![index](/images/addDinner.png)
