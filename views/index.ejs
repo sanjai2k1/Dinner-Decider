@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinner Decider</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3 text-center">DINNER DECIDER</h1>
+        <p class="text-center">Leave dinner decisions to chance! This website delivers a delightful surprise with every tap. Just upload your dinner options and let the randomness spice up your mealtime!</p>
+        <form action="/decide" method="get">
+          <button type="submit " class="btn btn-primary btn-lg  w-100 my-2" name="newItem" value="decide">Decide</button>
+        </form>
+        <form action="/new" method="get">
+          <button type="submit" class="btn btn-secondary btn-lg  w-100 my-1" name="newItem" value="add">Add Dinner</button>
+        </form>
+
+      </div>
+    </div>
+<div class="jumbotron my-3"><div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% dinners.forEach(dinner => { %>
+
+        <div class="col">
+        <div class="card text-bg-secondary" ">
+          <img src="<%=dinner.imagesrc%>"  style=" height:18rem;" class="card-img-top" alt="...">
+          <div class="card text-center  text-bg-secondary" >
+                <ul class="list-group text-bg-secondary list-group-flush">
+                  <li class="list-group-item "><%=dinner.dinnername %></li>
+                  <li class="list-group-item"><%=dinner.date%></li>
+                  <li class="list-group-item">Rating :<%=dinner.rating %></li>
+                  <li class="list-group-item"><%=dinner.description %></li>
+                  <li class="list-group-item"><%=dinner.address %></li>
+                </ul>
+              </div>
+              <div class="d-flex flex-row">
+                <div class="flex-fill">
+              <form action="/delete" method="post">
+                <button
+                  type="submit"
+                  name="deleteItemId"
+                  value="<%= dinner.id %>"
+                  class="btn btn-danger w-100"
+                >
+                  delete
+                </button>
+              </form>
+            </div>
+            <div class="flex-fill">
+              <form action="/edit" method="post">
+                <button
+                  type="submit"
+                  name="editItemId"
+                  value="<%= dinner.id %>"
+                  class="btn btn-success w-100"
+                >
+                  Edit
+                </button>
+              </form>
+            </div>
+            </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+   
+
+      <% }); %>
+    </div>
+  </div></div>
+  </body>
+</html>

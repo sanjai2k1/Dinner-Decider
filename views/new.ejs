@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../public/styles/styles.css">
+    
+  </head>
+  <body>
+   
+    <% if (locals.dinner) {%>
+
+
+      <div class="d-flex flex-column flex-wrap  bd-highlight justify-content-center align-items-center vh-100 "  >
+        <div class="container w-50 h-auto text-center">
+          <img src="<%=dinner.imagesrc%>" class=" mw-100 " alt="" height="200px" width="200px"/>
+         </div>
+    <div class="container w-50">
+    <form action="/update/<%= dinner.id %>" method="post">
+      <div class="form-group">
+      <label for="dinnerName">Name</label>
+      <h1 class="form-control"><%= dinner.dinnername %></h1>
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="rating">rating</label>
+        <select class="form-control" id="rating" value="<%= dinner.rating  %>" name="rating">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+       </select>
+        </div>
+
+
+      <div class="form-group">
+      <label for="description">description</label>
+      <input class="form-control"
+        type="text "
+        id="description"
+        name="description"
+        value="<%= dinner.description %>"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="address">address</label>
+     
+      <h1 class="form-control"><%= dinner.address %></h1>
+      
+      <button  type="submit" class="btn btn-primary form-control mt-4" value="submit" >Edit</button>
+    </div>
+    </form>
+  </div>
+</div>
+    <% }else{ %>
+      <div class="d-flex flex-row flex-wrap m-5 mt-0  bd-highlight justify-content-center align-items-center vh-100  "  >
+      
+      <div class="bd-highlight  ">
+        <h1>Add your Dinner...</h1>
+        <form   action="/add" method="post">
+      <div class="form-group">
+      <label for="dinnerName">Name</label>
+      
+      <input type="text "  class="form-control" id="dinnerName" name="dinnerName" required />
+    </div >
+    <div class="form-group">
+      <label for="rating">rating</label>
+      <select class="form-control" id="rating" name="rating">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+     </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">description</label>
+      <input type="text "class="form-control" id="description" name="description"  required />
+    </div>
+    <div class="form-group">
+      <label for="address">address</label>
+     
+      <input type="text " class="form-control" id="address" name="address" required />
+    </div>
+      <button type="submit" class="btn btn-primary form-control mt-4" value="submit" >Submit</button>
+    
+    </form>
+  </div>
+  
+
+
+</div>
+
+    <% } %>
+
+
+
+
+  </body>
+</html>

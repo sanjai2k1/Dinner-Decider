@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinner Decider</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <% if(locals.dinner){ %>
+    
+      <div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="card text-bg-secondary" ">
+      <div class="card-header text-center">
+      <h1>  DECIDED !</h1>
+      </div>
+      <img src="<%=dinner.imagesrc%>"  style=" height:18rem;" class="card-img-top" alt="...">
+      <div class="card text-center  text-bg-secondary" >
+            <ul class="list-group text-bg-secondary list-group-flush">
+              <li class="list-group-item "><%=dinner.dinnername %></li>
+              <li class="list-group-item"><%=dinner.date%></li>
+              <li class="list-group-item">Rating :<%=dinner.rating %></li>
+              <li class="list-group-item"><%=dinner.description %></li>
+              <li class="list-group-item"><%=dinner.address %></li>
+            </ul>
+          </div>
+    </div>
+  </div>
+    <% }else{ %>
+      <div class="d-flex flex-row flex-wrap m-5 mt-0  bd-highlight justify-content-center align-items-center vh-100  "  >
+    <h1>Add a dinner to decide.....</h1>
+    </div>
+    <% } %>
+  </body>
+</html>
